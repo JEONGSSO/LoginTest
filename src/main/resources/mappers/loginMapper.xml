@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD 선언 -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="LoginMapper">
+	<select id = "listAll" resultType ="com.login.domain.LoginInfoVO">
+		select * from logininfo;
+	</select>	<!-- 테이블과 비슷하게 나오기때문에 리턴 타입 VO -->
+	
+	<select id = "login" resultType ="Integer">
+		select count(*)
+		from logininfo
+		where id = #{id} and pw = #{pw};
+	</select>
+	
+</mapper>
